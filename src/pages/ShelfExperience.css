@@ -1,0 +1,17 @@
+.shelf-experience { position: fixed; inset: 0; background: #171a24; }
+.shelf-experience__frame { display: block; width: 100%; height: 100%; border: 0; }
+.shelf-experience__toolbar {
+  position: absolute; z-index: 2; right: max(26px, env(safe-area-inset-right)); bottom: max(26px, env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: 14px; padding: 8px 9px 8px 17px;
+  border: 1px solid rgba(255,255,255,.18); border-radius: 999px;
+  background: rgba(20,21,26,.86); color: #f1eadf; font: 500 12px/1.3 var(--f-body);
+  box-shadow: 0 8px 35px rgba(0,0,0,.2); backdrop-filter: blur(12px);
+}
+.shelf-experience__credit { color: #c4beb7; }
+.shelf-experience__credit a { color: inherit; text-underline-offset: 3px; }
+.shelf-experience__studio { color: #18171a; background: #f1eadf; border-radius: 999px; padding: 10px 13px; text-decoration: none; font-weight: 700; order: 2; }
+.shelf-experience__studio:hover { background: #fff; }
+@media (max-width: 600px) {
+  .shelf-experience__toolbar { right: 16px; bottom: max(18px, env(safe-area-inset-bottom)); padding: 5px; }
+  .shelf-experience__credit { display: none; }
+}

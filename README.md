@@ -15,7 +15,9 @@ npm run dev
 src/tokens/    dizayn tokenlari — har loyihada birinchi almashtiriladigan fayl
 src/motion/    useReducedMotion, useRenderGate (ko'rinish + tab holati)
 src/three/     LazyScene wrapper, SceneFactory kontrakti, sahnalar
-src/sections/  tayyor bo'limlar (hozircha: StudioHero)
+src/frames/    LazyFrame — og'ir demo sahifalar uchun lazy, pauza qiluvchi iframe
+src/sections/  tayyor bo'limlar: StudioHero, WorkShowcase
+public/landing-pages/  to'liq HTML demo sahifalar (ThreeUI Community, MIT)
 vendor/threeui ThreeUI Community komponentlari (MIT) — qoidalar ichidagi README'da
 docs/          performance budjeti va checklist
 ```

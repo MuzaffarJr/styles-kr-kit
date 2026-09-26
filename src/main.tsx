@@ -4,8 +4,9 @@ import "./tokens/tokens.css";
 import { StudioHero } from "./sections/StudioHero";
 import { WorkShowcase } from "./sections/WorkShowcase";
 import { Playground } from "./pages/Playground";
+import { ShelfExperience } from "./pages/ShelfExperience";
 
-// Minimal hash routing: "#playground" — sahna playground'i, qolgani — studio sahifasi.
+// The full-screen reference is the entry point; the original studio kit stays at #studio.
 function useHash() {
   return useSyncExternalStore(
     (cb) => {
@@ -20,6 +21,7 @@ function useHash() {
 function App() {
   const hash = useHash();
   if (hash === "#playground") return <Playground />;
+  if (hash === "" || hash === "#shelf") return <ShelfExperience />;
   return (
     <>
       <StudioHero />

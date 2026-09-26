@@ -1,0 +1,39 @@
+.lazy-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--c-cobalt-deep);
+  box-shadow: 0 0 0 1px rgba(238, 241, 246, 0.12), 0 30px 60px -30px rgba(0, 0, 0, 0.5);
+}
+
+.lazy-frame__iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  transform-origin: 0 0;
+  transition: opacity var(--dur-2) var(--ease-out);
+}
+
+.lazy-frame__poster {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.lazy-frame__play {
+  position: relative;
+  z-index: 1;
+  min-height: 48px;
+  padding: 0 var(--s-3);
+  border: 0;
+  border-radius: 999px;
+  background: var(--c-porcelain);
+  color: var(--c-cobalt-deep);
+  font: 500 var(--t-0) / 1 var(--f-body);
+  cursor: pointer;
+  transition: transform var(--dur-1) var(--ease-out);
+}
+.lazy-frame__play:active { transform: scale(0.98); }

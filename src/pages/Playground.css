@@ -1,0 +1,114 @@
+/* Texnologik yo'nalish uchun alohida, lokal tokenlar (studio "Celadon" tokenlariga tegmaydi). */
+.tech {
+  --tx-bg: #030308;        /* ThreeUI 2D renderer'larining fon rangi bilan bir xil */
+  --tx-ink: #f2f4f8;
+  --tx-dim: #9aa3b5;
+  --tx-line: rgba(242, 244, 248, 0.14);
+  --tx-cta: #e8ecf5;
+
+  background: var(--tx-bg);
+  color: var(--tx-ink);
+  font-family: var(--f-body);
+  min-height: 100svh;
+}
+
+.tech__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-2) var(--s-4);
+  padding: var(--s-3) var(--s-4);
+  border-bottom: 1px solid var(--tx-line);
+}
+.tech__back { color: var(--tx-ink); text-decoration: none; font-weight: 500; }
+.tech__intro { margin: 0; color: var(--tx-dim); max-width: 36em; word-break: keep-all; }
+
+.stage {
+  position: relative;
+  min-height: 86svh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--s-4);
+  padding: var(--s-6) var(--s-4) var(--s-5);
+  overflow: hidden;
+  isolation: isolate;
+  border-bottom: 1px solid var(--tx-line);
+}
+
+.stage__scene { position: absolute !important; inset: 0; z-index: -2; }
+.stage__fallback {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 45% at 60% 45%, rgba(120, 140, 255, 0.18), transparent 70%), var(--tx-bg);
+}
+/* Matn kontrasti uchun: sahna chap-pastdan qorayadi */
+.stage__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(3, 3, 8, 0.82) 0%, rgba(3, 3, 8, 0.35) 55%, transparent 80%),
+              linear-gradient(0deg, rgba(3, 3, 8, 0.7) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+.stage__copy { max-width: 36rem; }
+.stage__title {
+  font-size: clamp(2.2rem, 4.5vw + 1rem, 4.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin: 0 0 var(--s-3);
+  white-space: pre-line;
+  word-break: keep-all;
+}
+.stage__lede {
+  color: var(--tx-dim);
+  font-size: var(--t-1);
+  line-height: 1.65;
+  margin: 0 0 var(--s-4);
+  word-break: keep-all;
+}
+.stage__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--s-3);
+  border-radius: 8px;
+  background: var(--tx-cta);
+  color: var(--tx-bg);
+  border: 0;
+  font: 700 var(--t-0) / 1 var(--f-body);
+  cursor: pointer;
+  transition: background var(--dur-1) var(--ease-out);
+}
+.stage__cta:hover { background: #ffffff; }
+
+.stage__meta {
+  margin: 0;
+  display: grid;
+  gap: var(--s-2);
+  font-size: 0.875rem;
+  min-width: 14rem;
+  padding: var(--s-3);
+  border: 1px solid var(--tx-line);
+  border-radius: 10px;
+  background: rgba(3, 3, 8, 0.55);
+  backdrop-filter: blur(6px);
+}
+.stage__meta dt { color: var(--tx-dim); }
+.stage__meta dd { margin: 0; }
+
+.tech__credit {
+  padding: var(--s-4);
+  color: var(--tx-dim);
+  font-size: 0.875rem;
+}
+.tech__credit a { color: var(--tx-ink); }
+
+@media (max-width: 820px) {
+  .stage { grid-template-columns: 1fr; padding: var(--s-5) var(--s-3) var(--s-4); }
+  .stage__meta { min-width: 0; }
+  .tech__bar { padding: var(--s-3); }
+}

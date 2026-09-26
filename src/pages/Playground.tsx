@@ -55,7 +55,7 @@ export function Playground() {
   return (
     <div className="tech">
       <header className="tech__bar">
-        <a href="#" className="tech__back">Styles.kr 홈</a>
+        <a href="#studio" className="tech__back">Styles.kr 홈</a>
         <p className="tech__intro">
           기술 제품을 위한 히어로 템플릿 세 가지. 화면에 보이는 장면만 실행됩니다.
         </p>

@@ -1,0 +1,42 @@
+/* Styles.kr tokens — "Celadon" yo'nalishi (Koryo seladon keramikasi).
+   Har yangi mijoz loyihasida asosan shu faylni almashtirasiz. */
+:root {
+  --c-cobalt: #1b2f6b;     /* asosiy fon: kobalt glazur */
+  --c-cobalt-deep: #12204a;
+  --c-porcelain: #eef1f6;  /* asosiy matn */
+  --c-celadon: #8fc9b0;    /* aksent: seladon */
+  --c-celadon-dim: #5f9c86;
+  --c-mist: #aab4c8;       /* ikkilamchi matn */
+
+  --f-display: "Gowun Batang", "Noto Serif KR", Georgia, serif;
+  --f-body: "Manrope", "Apple SD Gothic Neo", system-ui, sans-serif;
+
+  /* Modular scale 1.25 */
+  --t-0: 1rem;
+  --t-1: 1.25rem;
+  --t-2: 1.563rem;
+  --t-5: clamp(2.6rem, 6vw + 1rem, 5.4rem);
+
+  --s-1: 0.5rem; --s-2: 1rem; --s-3: 1.5rem; --s-4: 2.5rem; --s-5: 4rem; --s-6: 6.5rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-1: 180ms;
+  --dur-2: 420ms;
+  --dur-3: 900ms;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--c-cobalt);
+  color: var(--c-porcelain);
+  font-family: var(--f-body);
+  font-size: var(--t-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+:focus-visible { outline: 2px solid var(--c-celadon); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

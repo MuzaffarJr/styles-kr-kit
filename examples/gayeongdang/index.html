@@ -11,9 +11,13 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23191d1b'/%3E%3Cpath d='M10 31 32 14l22 17M17 29v22h30V29M26 51V36h12v15' fill='none' stroke='%23dfc3a1' stroke-width='4' stroke-linecap='square'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./experience.css">
 </head>
 <body>
+  <div class="intro" id="intro" aria-hidden="true"><div class="intro-inner"><span class="intro-seal">佳永堂</span><span class="intro-rule"></span><span class="intro-caption">AN INVITATION TO SLOW DOWN</span></div></div>
+  <canvas id="hanok-scene" aria-hidden="true"></canvas><div class="scene-veil" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div><div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div class="site-shell">
+    <aside class="chapter-rail" aria-label="챕터 이동"><a href="#top"><span>00</span> 시작</a><a href="#story"><span>01</span> 공간</a><a href="#gallery"><span>02</span> 분위기</a><a href="#reservation"><span>03</span> 예약</a><a href="#location"><span>04</span> 위치</a></aside>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="가영당 홈"><span class="brand-mark">佳永堂</span><span class="brand-name">가영당<span>HANOK CULTURE STAY</span></span></a>
       <nav aria-label="주요 메뉴"><a href="#story">공간</a><a href="#gallery">분위기</a><a href="#location">오시는 길</a></nav>
@@ -23,14 +27,14 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-kicker"><span>CHEONGJU · KOREA</span><span class="line"></span><span>HANOK CULTURE STAY</span></div>
-        <div class="hero-layout">
+        <div class="hero-layout" data-reveal>
           <div class="hero-copy">
-            <p class="eyebrow">시간을 머무는 공간</p>
-            <h1 id="hero-heading">한옥에 머물다,<br><em>하루를 느리게.</em></h1>
+            <p class="eyebrow">CHAPTER 00 — 머무름의 시작</p>
+            <h1 id="hero-heading"><span>한옥에 머물다,</span><br><em>하루를 느리게.</em></h1>
             <p class="hero-description">청주 오창의 가영당한옥문화스테이. 여행의 속도를 잠시 늦추고, 한옥에서의 하루를 계획해 보세요.</p>
             <a class="text-link" href="#reservation">숙박 가능 여부 문의하기 <span aria-hidden="true">↗</span></a>
           </div>
-          <figure class="hero-image image-frame">
+          <figure class="hero-image image-frame" data-parallax>
             <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Traditional_hanok_houses_at_golden_hour_in_Bukchon_Hanok_Village_in_Seoul.jpg/1280px-Traditional_hanok_houses_at_golden_hour_in_Bukchon_Hanok_Village_in_Seoul.jpg" alt="전통 한옥 지붕과 목조 건물의 참고 이미지" fetchpriority="high">
             <figcaption>01 / HANOK MOOD · 연출 참고 이미지</figcaption>
           </figure>
@@ -38,12 +42,12 @@
         <div class="hero-bottom"><span>충청북도 청주시 청원구 오창읍</span><span>SCROLL TO EXPLORE ↓</span></div>
       </section>
 
-      <section class="story section-pad" id="story" aria-labelledby="story-title">
+      <section class="story section-pad chapter" id="story" aria-labelledby="story-title">
         <div class="section-index"><span>01 / THE PLACE</span><span class="index-line"></span></div>
         <div class="story-grid"><h2 id="story-title">익숙한 하루에서<br><em>잠시 벗어나는 시간.</em></h2><div><p>가영당은 청주 오창에 자리한 한옥문화스테이입니다. 여행의 목적이 휴식이든 새로운 풍경이든, 머무는 시간을 직접 계획할 수 있도록 필요한 정보를 간결하게 담았습니다.</p><a class="text-link dark-link" href="#location">위치 확인하기 <span aria-hidden="true">↗</span></a></div></div>
       </section>
 
-      <section class="gallery section-pad" id="gallery" aria-labelledby="gallery-title">
+      <section class="gallery section-pad chapter" id="gallery" aria-labelledby="gallery-title">
         <div class="section-index"><span>02 / ATMOSPHERE</span><span class="index-line"></span></div>
         <div class="gallery-heading"><h2 id="gallery-title">한옥의 선과<br><em>고요한 결.</em></h2><p>아래 사진은 한옥의 분위기를 보여주기 위한 참고 이미지입니다. 가영당의 실제 객실 및 시설 사진은 아닙니다.</p></div>
         <div class="gallery-grid">
@@ -52,7 +56,7 @@
         </div>
       </section>
 
-      <section class="reservation section-pad" id="reservation" aria-labelledby="reservation-title">
+      <section class="reservation section-pad chapter" id="reservation" aria-labelledby="reservation-title">
         <div class="section-index"><span>03 / RESERVATION</span><span class="index-line"></span></div>
         <div class="reservation-layout"><div class="reservation-intro"><p class="eyebrow">YOUR STAY BEGINS HERE</p><h2 id="reservation-title">머무를 날짜를<br><em>알려주세요.</em></h2><p>날짜와 인원을 입력하면 문의 문자가 작성됩니다. 전송 후 숙소의 답변으로 가능 여부와 요금을 확인해 주세요.</p><a class="phone-link" href="tel:+821099352129">전화 문의 010-9935-2129 ↗</a></div>
           <form id="booking-form" class="booking-form">
@@ -66,10 +70,11 @@
         </div>
       </section>
 
-      <section class="location section-pad" id="location" aria-labelledby="location-title"><div class="section-index"><span>04 / LOCATION</span><span class="index-line"></span></div><div class="location-grid"><div><h2 id="location-title">찾아오시는 길.</h2><address>충청북도 청주시 청원구 오창읍 미래지로 71-52</address><a class="text-link dark-link" href="https://maps.app.goo.gl/QX6T5xacbMnWLwjH9" target="_blank" rel="noopener noreferrer">Google 지도에서 보기 <span aria-hidden="true">↗</span></a></div><div class="map-card"><span>GAYEONGDANG</span><strong>가영당한옥문화스테이</strong><span>CHEONGJU · OCHANG</span><a href="https://maps.app.goo.gl/QX6T5xacbMnWLwjH9" target="_blank" rel="noopener noreferrer">길찾기 ↗</a></div></div></section>
+      <section class="location section-pad chapter" id="location" aria-labelledby="location-title"><div class="section-index"><span>04 / LOCATION</span><span class="index-line"></span></div><div class="location-grid"><div><h2 id="location-title">찾아오시는 길.</h2><address>충청북도 청주시 청원구 오창읍 미래지로 71-52</address><a class="text-link dark-link" href="https://maps.app.goo.gl/QX6T5xacbMnWLwjH9" target="_blank" rel="noopener noreferrer">Google 지도에서 보기 <span aria-hidden="true">↗</span></a></div><div class="map-card"><span>GAYEONGDANG</span><strong>가영당한옥문화스테이</strong><span>CHEONGJU · OCHANG</span><a href="https://maps.app.goo.gl/QX6T5xacbMnWLwjH9" target="_blank" rel="noopener noreferrer">길찾기 ↗</a></div></div></section>
     </main>
     <footer><div class="footer-brand">가영당 <span>HANOK CULTURE STAY</span></div><p>충북 청주시 청원구 오창읍 미래지로 71-52<br><a href="tel:+821099352129">010-9935-2129</a></p><div class="footer-credit">참고 사진: <a href="https://commons.wikimedia.org/wiki/File:Traditional_hanok_houses_at_golden_hour_in_Bukchon_Hanok_Village_in_Seoul.jpg" target="_blank" rel="noopener noreferrer">Basile Morin, CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Traditional_hanok_house_with_wooden_doors_along_a_steeply_sloping_street_in_Bukchon_Hanok_Village_Seoul.jpg" target="_blank" rel="noopener noreferrer">Basile Morin, CC BY-SA 4.0</a>. 사진은 북촌에서 촬영한 한옥 참고 이미지이며 색감·크롭을 조정했습니다.</div></footer>
   </div>
   <script src="./script.js" defer></script>
+  <script type="module" src="./experience.js"></script>
 </body>
 </html>

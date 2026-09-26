@@ -25,6 +25,11 @@ grep -n "CompleteShelf" ../threeui-ref/src/data/shaders.tsx
 
 ## Ko'chirilgan komponentlar
 
+Litsenziya fayllari (`LICENSE`, `THIRD_PARTY_NOTICES.md`, `FONT-LICENSES.md`, `ASSET-LICENSES.md`) shu papkada, upstream `68802d5` dan o'zgarishsiz.
+
+To'liq HTML hujjat ko'rinishidagi landing page'lar `public/landing-pages/` ga o'zgarishsiz qo'yiladi va
+`<LazyFrame>` orqali ko'rsatiladi (canvas sahnalar esa `<LazyScene>` orqali).
+
 | Komponent | Upstream yo'l | Commit SHA | Moslangan fayl |
 |---|---|---|---|
-| — | — | — | — |
+| Complete Shelf landing page | `public/landing-pages/complete-shelf-v2.html` | `68802d5428071ada5c20db8094b1649e6bb770ed` | `public/landing-pages/complete-shelf-v2.html` (o'zgarishsiz), `src/frames/LazyFrame.tsx` orqali ulangan |

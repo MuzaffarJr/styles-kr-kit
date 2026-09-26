@@ -12,6 +12,7 @@ export function StudioHero() {
           <li><a href="#work">작업</a></li>
           <li><a href="#process">진행 방식</a></li>
           <li><a href="#contact">문의</a></li>
+          <li><a href="#playground">플레이그라운드</a></li>
         </ul>
       </nav>
 

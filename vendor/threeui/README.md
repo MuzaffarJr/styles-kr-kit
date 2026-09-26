@@ -33,3 +33,22 @@ To'liq HTML hujjat ko'rinishidagi landing page'lar `public/landing-pages/` ga o'
 | Komponent | Upstream yo'l | Commit SHA | Moslangan fayl |
 |---|---|---|---|
 | Complete Shelf landing page | `public/landing-pages/complete-shelf-v2.html` | `68802d5428071ada5c20db8094b1649e6bb770ed` | `public/landing-pages/complete-shelf-v2.html` (o'zgarishsiz), `src/frames/LazyFrame.tsx` orqali ulangan |
+| Orbital Sphere renderer | `src/shaders/orbital-sphere/orbitalSphereRenderer.ts` | `68802d5428071ada5c20db8094b1649e6bb770ed` | `vendor/threeui/src/orbital-sphere/` (o'zgarishsiz) → `src/three/scenes/threeui/orbitalSphere.ts` adapteri |
+| Data Pixel Arc renderer | `src/shaders/data-pixel-arc/dataPixelArcRenderer.ts` | `68802d5428071ada5c20db8094b1649e6bb770ed` | `vendor/threeui/src/data-pixel-arc/` (o'zgarishsiz) → `src/three/scenes/threeui/dataPixelArc.ts` adapteri |
+| Predictive Arc renderer | `src/shaders/predictive-arc/predictiveArcRenderer.ts` | `68802d5428071ada5c20db8094b1649e6bb770ed` | `vendor/threeui/src/predictive-arc/` (o'zgarishsiz) → `src/three/scenes/threeui/predictiveArc.ts` adapteri |
+
+## Canvas renderer'larni ulash
+
+ThreeUI renderer'lari `create(canvas, getOptions) => { resize, render, dispose? }` shaklida.
+`src/three/scenes/threeui/adapt.ts` ularni o'zgartirmasdan `SceneFactory`'ga aylantiradi.
+Yangi renderer qo'shish: faylni `vendor/threeui/src/<nom>/` ga o'zgarishsiz ko'chiring,
+keyin `adaptThreeUI(createXRenderer, { ...X_DEFAULTS, ...o'zgartirishlar })` bilan bitta qatorli adapter yozing.
+
+### Ma'lum cheklovlar
+
+- Orbital Sphere `three128` (npm:three@0.128.0) alias'ini ishlatadi — upstream'dagidek. Bu kit'da
+  ikkinchi three nusxasi bo'lib, faqat o'sha sahna ochilganda alohida chunk sifatida yuklanadi.
+  Mijoz loyihasida bitta sahna ishlatilsa, ikkitasidan birini qoldiring.
+- Upstream renderer'lar DPR'ni 2 bilan cheklaydi (bizning budjet 1.5). O'zgartirish uchun
+  faylni tahrirlash kerak — bu holda jadvalga "o'zgartirilgan" deb yozing.
+- 2D renderer'lar kadr asosida animatsiya qiladi (vaqt emas): 120Hz ekranda tezroq aylanadi.

@@ -11,6 +11,8 @@ interface Props {
   maxDpr?: number;
   className?: string;
   label?: string;
+  /** Canvas 2D sahnalar uchun false qiling — WebGL tekshiruvi o'tkazib yuboriladi. */
+  requiresWebGL?: boolean;
 }
 
 function hasWebGL(): boolean {
@@ -22,7 +24,7 @@ function hasWebGL(): boolean {
   }
 }
 
-export function LazyScene({ load, fallback, maxDpr = 1.5, className, label }: Props) {
+export function LazyScene({ load, fallback, maxDpr = 1.5, className, label, requiresWebGL = true }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const handleRef = useRef<SceneHandle | null>(null);
@@ -33,7 +35,7 @@ export function LazyScene({ load, fallback, maxDpr = 1.5, className, label }: Pr
   // 1) Viewport'ga yaqinlashganda sahnani yuklash
   useEffect(() => {
     if (!near || status !== "idle") return;
-    if (!hasWebGL()) { setStatus("failed"); return; }
+    if (requiresWebGL && !hasWebGL()) { setStatus("failed"); return; }
     let cancelled = false;
     load()
       .then(({ default: create }) => {
@@ -49,7 +51,7 @@ export function LazyScene({ load, fallback, maxDpr = 1.5, className, label }: Pr
         if (!cancelled) setStatus("failed");
       });
     return () => { cancelled = true; };
-  }, [near, status, load, maxDpr]);
+  }, [near, status, load, maxDpr, requiresWebGL]);
 
   // 2) Loop boshqaruvi: ko'rinmasa, tab yashirin bo'lsa yoki reduced-motion — to'xtaydi
   useEffect(() => {

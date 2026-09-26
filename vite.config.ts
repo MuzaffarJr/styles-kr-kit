@@ -6,8 +6,9 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // three.js alohida chunk: LCP'ni bloklamasin
-        manualChunks: { three: ["three"] },
+        // three.js alohida chunk'larda: LCP'ni bloklamasin.
+        // three128 — faqat ThreeUI Orbital Sphere uchun, o'sha sahna ochilgandagina yuklanadi.
+        manualChunks: { three: ["three"], three128: ["three128"] },
       },
     },
   },

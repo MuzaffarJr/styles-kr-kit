@@ -6,7 +6,7 @@ const canvas = document.querySelector('#hanok-scene');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const chapters = [...document.querySelectorAll('main > section')];
 const rail = [...document.querySelectorAll('.chapter-rail a')];
-const revealTargets = [...document.querySelectorAll('[data-reveal],.chapter .section-index,.chapter h2,.chapter p,.chapter .text-link,.chapter .image-frame,.chapter .booking-form,.chapter .map-card')];
+const revealTargets = [...document.querySelectorAll('[data-reveal],.chapter .section-index,.chapter h2,.chapter p,.chapter .text-link,.chapter .image-frame,.chapter .booking-form,.chapter .map-card,.chapter .rooms-heading,.chapter .room-card')];
 
 if (!reduced) root.classList.add('js-motion');
 const revealer = new IntersectionObserver(entries => {
@@ -31,8 +31,7 @@ function updateScroll() {
   for (let i = 0; i < chapters.length; i++) if (chapters[i].offsetTop <= midpoint) index = i;
   active = index;
   rail.forEach((a, i) => { a.classList.toggle('active', i === index); if (i === index) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current'); });
-  root.style.setProperty('--veil-opacity', index === 0 ? '1' : index === 3 ? '.35' : '.8');
-  root.style.setProperty('--photo-shift', `${Math.round(Math.min(45, scrollY * .12))}px`);
+  root.style.setProperty('--veil-opacity', index === 0 ? '1' : index === 4 ? '.55' : '.8');
 }
 addEventListener('scroll', updateScroll, { passive: true });
 addEventListener('resize', updateScroll, { passive: true });
@@ -125,6 +124,7 @@ function makeHanok() {
 const views = [
   {p:[10,6.1,17],t:[0,1.7,-1]},
   {p:[-10,4.6,12],t:[0,2,-1]},
+  {p:[5.8,3.5,11],t:[0,1.7,-1]},
   {p:[4.8,3.7,10.5],t:[0,2.1,-1]},
   {p:[3.4,4.7,15],t:[0,1.7,-1]},
   {p:[-3.7,5.3,17],t:[0,1.3,-1]}

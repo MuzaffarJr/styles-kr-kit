@@ -7,12 +7,13 @@ export function StudioHero() {
   return (
     <header className="hero">
       <nav className="hero__nav" aria-label="주요 메뉴">
-        <a className="hero__brand" href="/">Styles.kr</a>
+        <a className="hero__brand" href="#studio">Styles.kr</a>
         <ul>
           <li><a href="#work">작업</a></li>
           <li><a href="#process">진행 방식</a></li>
           <li><a href="#contact">문의</a></li>
           <li><a href="#playground">플레이그라운드</a></li>
+          <li><a href="#shelf">서가 데모</a></li>
         </ul>
       </nav>
 
@@ -35,6 +36,7 @@ export function StudioHero() {
         <div className="hero__actions">
           <a className="btn btn--primary" href="#contact">프로젝트 상담하기</a>
           <a className="btn btn--ghost" href="#work">작업 보기</a>
+          <a className="btn btn--ghost" href="#shelf">3D 서가 전체 화면</a>
         </div>
       </div>
     </header>
